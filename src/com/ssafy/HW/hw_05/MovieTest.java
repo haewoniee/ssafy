@@ -1,4 +1,4 @@
-package com.ssafy.in_class;
+package com.ssafy.HW.hw_05;
 
 import java.util.Scanner;
 
@@ -10,19 +10,19 @@ public class MovieTest {
 		int num = -1;
 		do 
 		{
-			System.out.println("<<<영화 관리 프로그램>>>");
-			System.out.println("1. 영화 정보 입력");
-			System.out.println("2. 영화 정보 전체 검색");
-			System.out.println("3. 영화명 검색");
-			System.out.println("4. 영화 장르별 검색");
-			System.out.println("5. 영화 정보 삭제");
-			System.out.println("0. 종료");
+			System.out.println("<<<�쁺�솕 愿�由� �봽濡쒓렇�옩>>>");
+			System.out.println("1. �쁺�솕 �젙蹂� �엯�젰");
+			System.out.println("2. �쁺�솕 �젙蹂� �쟾泥� 寃��깋");
+			System.out.println("3. �쁺�솕紐� 寃��깋");
+			System.out.println("4. �쁺�솕 �옣瑜대퀎 寃��깋");
+			System.out.println("5. �쁺�솕 �젙蹂� �궘�젣");
+			System.out.println("0. 醫낅즺");
 			try {
 				num = Integer.parseInt(sc.nextLine().trim());			
 			} catch (Exception e)
 			{
 				System.out.println();
-				System.out.println("잘못된 입력입니다.");
+				System.out.println("�옒紐삳맂 �엯�젰�엯�땲�떎.");
 				System.out.println();
 				continue;
 			}
@@ -33,7 +33,7 @@ public class MovieTest {
 				break;
 			case 2:
 				System.out.println();
-				System.out.println("- 현재 저장된 영화들입니다.");
+				System.out.println("- �쁽�옱 ���옣�맂 �쁺�솕�뱾�엯�땲�떎.");
 				for (Movie m : manager.search())
 				{
 					System.out.println(m);
@@ -51,31 +51,31 @@ public class MovieTest {
 			}
 			System.out.println();
 		} while (num != 0);
-		System.out.println("---영화 관리 프로그램 종료---");
+		System.out.println("---�쁺�솕 愿�由� �봽濡쒓렇�옩 醫낅즺---");
 		sc.close();
 	}
 	
 	public static void deleteMovieByName()
 	{
-		System.out.print("삭제할 영화명을 입력하세요: ");
+		System.out.print("�궘�젣�븷 �쁺�솕紐낆쓣 �엯�젰�븯�꽭�슂: ");
 		String title = sc.nextLine().trim();
 		manager.delete(title);
 		System.out.println();
-		System.out.println("- 영화가 삭제되었습니다.");
+		System.out.println("- �쁺�솕媛� �궘�젣�릺�뿀�뒿�땲�떎.");
 	}
 	
 	public static void searchMovieByName()
 	{
-		System.out.print("검색할 영화명을 입력하세요: ");
+		System.out.print("寃��깋�븷 �쁺�솕紐낆쓣 �엯�젰�븯�꽭�슂: ");
 		String tt = sc.nextLine().trim();
 		Movie[] lst = manager.searchTitle(tt);
 		System.out.println();
 		if (lst.length == 0)
 		{
-			 System.out.println("- 해당 제목으로 된 영화가 없습니다.");
+			 System.out.println("- �빐�떦 �젣紐⑹쑝濡� �맂 �쁺�솕媛� �뾾�뒿�땲�떎.");
 			 return;
 		}
-		System.out.println("- " +tt + "를 제목으로 검색된 영화입니다");
+		System.out.println("- " +tt + "瑜� �젣紐⑹쑝濡� 寃��깋�맂 �쁺�솕�엯�땲�떎");
 		for (Movie m : lst)
 		{
 			System.out.println(m);
@@ -84,16 +84,16 @@ public class MovieTest {
 	
 	public static void searchMovieByGenere()
 	{
-		System.out.print("검색할 장르명을 입력하세요: ");
+		System.out.print("寃��깋�븷 �옣瑜대챸�쓣 �엯�젰�븯�꽭�슂: ");
 		String genre = sc.nextLine().trim();
 		Movie[] lst = manager.searchGenre(genre);
 		System.out.println();
 		if (lst.length == 0)
 		{
-			 System.out.println("해당 제목으로 된 영화가 없습니다.");
+			 System.out.println("�빐�떦 �젣紐⑹쑝濡� �맂 �쁺�솕媛� �뾾�뒿�땲�떎.");
 			 return;
 		}
-		System.out.println(genre + "를 장르로 검색된 영화입니다");
+		System.out.println(genre + "瑜� �옣瑜대줈 寃��깋�맂 �쁺�솕�엯�땲�떎");
 		for (Movie m : lst)
 		{
 			System.out.println(m);
@@ -103,42 +103,42 @@ public class MovieTest {
 	
 	public static void addMovie()
 	{
-		System.out.println("입력할 영화 정보를 알려주세요.");
-		System.out.print("영화 제목: ");
+		System.out.println("�엯�젰�븷 �쁺�솕 �젙蹂대�� �븣�젮二쇱꽭�슂.");
+		System.out.print("�쁺�솕 �젣紐�: ");
 		String title = sc.nextLine().trim();
 
-		System.out.print("감독 이름: ");
+		System.out.print("媛먮룆 �씠由�: ");
 		String director = sc.nextLine().trim();
 
 		int rating = -1;
 		while (rating == -1)
 		{
-			System.out.print("별점(1~5): ");
+			System.out.print("蹂꾩젏(1~5): ");
 			try {
 				rating = Integer.parseInt(sc.nextLine().trim());
 				if (rating < 1 || rating > 5)
 				{
 					rating = -1;
-					System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
+					System.out.println("�옒紐삳맂 �엯�젰�엯�땲�떎. �떎�떆 �엯�젰�빐二쇱꽭�슂.");
 					continue;
 				}
 			} catch (Exception e)
 			{
-				System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
+				System.out.println("�옒紐삳맂 �엯�젰�엯�땲�떎. �떎�떆 �엯�젰�빐二쇱꽭�슂.");
 				continue;
 			}
 		}
 		
-		System.out.print("영화 장르: ");
+		System.out.print("�쁺�솕 �옣瑜�: ");
 		String genre = sc.nextLine().trim();
 
-		System.out.print("영화 요약(옵션): ");
+		System.out.print("�쁺�솕 �슂�빟(�샃�뀡): ");
 		String summary = sc.nextLine().trim();
 
 		Movie m = new Movie(title, director, rating, genre, summary);
 		manager.add(m);	
 		System.out.println();
-		System.out.println("- 다음 영화가 성공적으로 입력되었습니다.");
+		System.out.println("- �떎�쓬 �쁺�솕媛� �꽦怨듭쟻�쑝濡� �엯�젰�릺�뿀�뒿�땲�떎.");
 		System.out.println(m);
 	}
 }

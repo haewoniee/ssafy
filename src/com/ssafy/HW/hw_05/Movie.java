@@ -1,4 +1,4 @@
-package com.ssafy.in_class;
+package com.ssafy.HW.hw_05;
 
 public class Movie {
 	private String title;

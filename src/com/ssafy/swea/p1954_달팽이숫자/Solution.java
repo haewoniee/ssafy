@@ -3,41 +3,60 @@ package com.ssafy.swea.p1954_달팽이숫자;
 import java.util.Scanner;
 
 public class Solution {
-
-	static int T, N, d;
-	static int[][] map, dir = {{0,1},{1,0},{0,-1},{-1,0}};
 	
+	static int T, N;
+	static int[][] snail;
+	
+	static int[][] dir = {{0,1},{1,0},{0,-1},{-1,0}};
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		T = sc.nextInt();
-		
-		for (int Ti = 1; Ti <= T; Ti++)
+		for (int t = 1; t <= T; t++)
 		{
 			N = sc.nextInt();
-			map = new int[N][N];
-			int idx = 1;
-			d = 0;
-			int r = 0, c = 0;
-			while (N > 0)
+			snail = new int[N][N];
+			System.out.println("#" + t);
+
+			fill();
+			
+			for (int i = 0; i < N; i++)
 			{
-				d = d % 4;
-				//諛⑺뼢蹂꾨줈 N 媛� �몢踰� 諛섎났
-				for (int j = 0; j < 2; j++)
+				for (int j = 0; j < N; j++)
 				{
-					for (int i = 0; i < N; i++)
-					{
-						r = i * dir[d][0];
-						c = i * dir[d][1];
-						map[r][c] = idx;
-						idx++;
-					}
-					d++;
+					System.out.print(snail[i][j] + " ");
 				}
-				N--;
+				System.out.println();
 			}
 		}
 		
 		
 		sc.close();
 	}
+
+	private static void fill()
+	{
+		int r = 0, c = 0, num = 1, d = 0;
+		while (num <= N*N)
+		{
+			while (r >= 0 && r < N && c >= 0 && c < N)
+			{
+				if (snail[r][c] != 0)
+				{
+					break;
+				}
+				snail[r][c] = num;
+				r += dir[d][0];
+				c += dir[d][1];
+				num++;
+			}
+			r -= dir[d][0];
+			c -= dir[d][1];
+			d = (d+1) % 4;
+			r += dir[d][0];
+			c += dir[d][1];
+		}
+		
+	}
+	
 }
