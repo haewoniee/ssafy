@@ -1,4 +1,4 @@
-package com.ssafy.live.lec02;
+package com.ssafy.lecture.live.live02;
 
 //input arr받아?�� 거기?�� r개의 조합 뽑기
 

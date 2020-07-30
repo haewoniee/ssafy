@@ -1,4 +1,4 @@
-package com.ssafy.java.lecture.s001;
+package com.ssafy.lecture.java.s001;
 
 import java.util.Calendar;        // Calendar?Š” java.util?— ?ˆ?‹¤.
 import java.util.Date;            // Date?Š” java.util?— ?ˆ?‹¤.

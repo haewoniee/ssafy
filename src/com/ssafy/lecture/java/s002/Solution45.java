@@ -1,4 +1,4 @@
-package com.ssafy.java.lecture.s002;
+package com.ssafy.lecture.java.s002;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

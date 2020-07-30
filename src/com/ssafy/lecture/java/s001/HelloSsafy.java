@@ -1,4 +1,4 @@
-package com.ssafy.java.lecture.s001;
+package com.ssafy.lecture.java.s001;
 
 public class HelloSsafy {
 

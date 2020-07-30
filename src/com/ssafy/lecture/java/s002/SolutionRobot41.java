@@ -1,4 +1,4 @@
-package com.ssafy.java.lecture.s002;
+package com.ssafy.lecture.java.s002;
 
 import java.util.ArrayList;
 import java.util.Scanner;

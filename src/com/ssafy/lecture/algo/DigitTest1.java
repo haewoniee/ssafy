@@ -1,4 +1,4 @@
-package com.ssafy.algo.lecture;
+package com.ssafy.lecture.algo;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -25,7 +25,7 @@ public class DigitTest1 {
 		
 		for (int i : set)
 		{
-			System.out.println(i + " : " + nums[i] + "ê°œ");
+			System.out.println(i + " : " + nums[i] + "ê°?");
 		}
 		
 		br.close();

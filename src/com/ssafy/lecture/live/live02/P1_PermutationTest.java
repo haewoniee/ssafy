@@ -1,31 +1,17 @@
-package com.ssafy.live.lec02;
+package com.ssafy.lecture.live.live02;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
-//input arrë°›ì•„?„œ ê±°ê¸°?„œ rê°œì˜ ?ˆœ?—´ ë½‘ê¸°
-public class P2_PermutationTest2 {
+//?ˆœ?—´, 1~Nê¹Œì?
+public class P1_PermutationTest {
 
-	private static int N, R;
-	private static int[] numbers, input;
+	private static int N = 4, R = 2;
+	private static int[] numbers;
 	private static boolean[] isSelected;
 	
 	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		
-		N = sc.nextInt();
-		R = sc.nextInt();
-		
 		numbers = new int[R];
-		input = new int[N];
-		isSelected = new boolean[N];
-		
-		for(int i = 0; i < N; i++)
-		{
-			input[i] = sc.nextInt();
-		}
-		sc.close();
+		isSelected = new boolean[N+1];
 		
 		permutation(0);
 		
@@ -41,12 +27,12 @@ public class P2_PermutationTest2 {
 			return;
 		}
 		
-		for (int i = 0; i < N; i++)
+		for (int i = 1; i <= N; i++)
 		{
 			//ì¤‘ë³µ ?™•?¸
 			if (isSelected[i]) continue;
 			
-			numbers[cnt] = input[i]; //?•´?‹¹?ˆ«?ë¥? ?‚¬?š©
+			numbers[cnt] = i; //?•´?‹¹?ˆ«?ë¥? ?‚¬?š©
 			isSelected[i] = true;
 			
 			permutation(cnt+1); //?‹¤?Œ ?ë¦? ?ˆœ?—´ ë½‘ê¸°

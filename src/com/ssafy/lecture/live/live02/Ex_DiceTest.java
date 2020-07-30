@@ -1,4 +1,4 @@
-package com.ssafy.live.lec02;
+package com.ssafy.lecture.live.live02;
 
 import java.util.Arrays;
 import java.util.Scanner;

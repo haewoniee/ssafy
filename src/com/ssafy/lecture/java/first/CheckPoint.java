@@ -1,4 +1,4 @@
-package com.ssafy.java.lecture.first;
+package com.ssafy.lecture.java.first;
 
 import java.util.Scanner;
 
