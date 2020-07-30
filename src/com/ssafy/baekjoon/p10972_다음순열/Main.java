@@ -1,4 +1,4 @@
-package com.ssafy.baekjoon.p10972_´ÙÀ½¼ø¿­;
+package com.ssafy.baekjoon.p10972_ë‹¤ìŒìˆœì—´;
 
 import java.util.Scanner;
 
@@ -38,7 +38,7 @@ public class Main {
 		int i;
 		for (i = N-2; i >= 0; i--)
 		{
-			//¿À¸§Â÷¼ø
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (numbers[i] < numbers[i+1])
 			{
 				flag = true;
@@ -62,7 +62,7 @@ public class Main {
 		
 		swap(i,j);
 		
-		//jÀÌÈÄÀÇ ¿ø¼Òµé µÚÁý±â
+		//jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Òµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		for (j = 1; j + i <= (i+N)/2; j++)
 		{
 			swap(j+i, N-j);

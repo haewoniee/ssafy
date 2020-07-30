@@ -1,4 +1,5 @@
-package com.ssafy.swea.p2805³óÀÛ¹°¼öÈ®ÇÏ±â;
+package com.ssafy.swea.p2805ë†ì‘ë¬¼ìˆ˜í™•í•˜ê¸°;
+
 
 import java.util.Scanner;
 

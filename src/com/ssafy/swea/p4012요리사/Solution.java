@@ -1,6 +1,6 @@
-package com.ssafy.swea.p4012¿ä¸®»ç;
+package com.ssafy.swea.p4012ìš”ë¦¬ì‚¬;
 
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class Solution {

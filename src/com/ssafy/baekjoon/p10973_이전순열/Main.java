@@ -1,4 +1,4 @@
-package com.ssafy.baekjoon.p10973_юлюЭ╪Ь©╜;
+package com.ssafy.baekjoon.p10973_Л²╢Л═└Л┬°Л≈╢;
 
 import java.util.Scanner;
 
@@ -37,7 +37,7 @@ public class Main {
 	{
 		boolean flag = false;
 		
-		//╣з©║╪╜╨нем Ё╩╦╡бВ╪Ь цё╠Б
+		//О©╫з©О©╫О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ цёО©╫О©╫
 		int i;
 		for (i = N-2; i >= 0; i--)
 		{
@@ -53,7 +53,7 @@ public class Main {
 			return flag;
 		}
 		
-		//╢ы╫ц ╣з©║╪╜╨нем numbers[i]╨╦╢ы юшю╨ ╪Ж цё╠Б
+		//О©╫ы╫О©╫ О©╫з©О©╫О©╫О©╫О©╫О©╫О©╫О©╫ numbers[i]О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫ О©╫О©╫ цёО©╫О©╫
 		int j;
 		for (j = N-1; j > i; j--)
 		{
@@ -65,7 +65,7 @@ public class Main {
 		
 		swap(i,j);
 		
-		//i╧Ьб╟ юлхд╦╕ ╣заЩ╠Б
+		//iО©╫О©╫б╟ О©╫О©╫О©╫д╦О©╫ О©╫О©╫О©╫О©╫О©╫О©╫
 		for (j = 1; j + i <= (i+N)/2; j++)
 		{
 			swap(j+i, N-j);
