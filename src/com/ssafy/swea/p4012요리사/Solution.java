@@ -1,4 +1,4 @@
-package com.ssafy.swea.p4012ìš”ë¦¬ì‚¬;
+package com.ssafy.swea.p4012¿ä¸®»ç;
 
 
 import java.util.Scanner;

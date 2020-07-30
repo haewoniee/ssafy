@@ -1,4 +1,4 @@
-package com.ssafy.baekjoon.p10972_ë‹¤ìŒìˆœì—´;
+package com.ssafy.baekjoon.p10972_´ÙÀ½¼ø¿­;
 
 import java.util.Scanner;
 

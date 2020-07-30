@@ -1,4 +1,4 @@
-package com.ssafy.java.first;
+package com.ssafy.java.lecture.first;
 
 import java.util.Scanner;
 
@@ -9,10 +9,10 @@ public class CheckPoint {
 		int height = sc.nextInt();
 		int weight = sc.nextInt();
 		int bmi = weight+100-height;
-		System.out.println("ë¹„ë§Œìˆ˜ì¹˜ëŠ” " + bmi + "ì…ë‹ˆë‹¤.");
+		System.out.println("ë¹„ë§Œ?ˆ˜ì¹˜ëŠ” " + bmi + "?…?‹ˆ?‹¤.");
 		if (bmi > 0)
 		{
-			System.out.println("ë‹¹ì‹ ì€ ë¹„ë§Œì´êµ°ìš”");
+			System.out.println("?‹¹?‹ ?? ë¹„ë§Œ?´êµ°ìš”");
 		}
 		sc.close();
 	}

@@ -1,4 +1,4 @@
-package com.ssafy.java.first;
+package com.ssafy.java.lecture.first;
 
 import java.util.Scanner;
 
@@ -8,8 +8,8 @@ public class Compute {
 		Scanner sc = new Scanner(System.in);
 		int num1 = sc.nextInt();
 		int num2 = sc.nextInt();
-		System.out.println("ê³±="+num1*num2);
-		System.out.println("ëª«="+num1/num2);
+		System.out.println("ê³?="+num1*num2);
+		System.out.println("ëª?="+num1/num2);
 		sc.close();
 	}
 
