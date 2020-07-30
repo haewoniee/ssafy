@@ -1,4 +1,4 @@
-package com.ssafy.hw4;
+package com.ssafy.HW.hw_04_1;
 
 public class ProductTest {
 

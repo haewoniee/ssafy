@@ -1,4 +1,4 @@
-package com.ssafy.HW.hw_04;
+package com.ssafy.HW.hw_04_2;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
