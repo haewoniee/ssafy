@@ -1,4 +1,4 @@
-package com.ssafy.swea.p1954달팽이숫자;
+package com.ssafy.swea.p1954_달팽이숫자;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package com.ssafy.swea.p8659GCD;
+package com.ssafy.swea.p8659_GCD;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package com.ssafy.swea.p4012요리사;
+package com.ssafy.swea.p4012_요리사;
 
 
 import java.util.Scanner;

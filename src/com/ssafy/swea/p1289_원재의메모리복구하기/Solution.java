@@ -1,4 +1,4 @@
-package com.ssafy.swea.p1289;
+package com.ssafy.swea.p1289_원재의메모리복구하기;
 
 import java.util.Scanner;
 

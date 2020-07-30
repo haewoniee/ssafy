@@ -1,4 +1,4 @@
-package com.ssafy.swea.p2805농작물수확하기;
+package com.ssafy.swea.p2805_농작물수확하기;
 
 
 import java.util.Scanner;

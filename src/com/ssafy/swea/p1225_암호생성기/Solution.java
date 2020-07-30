@@ -1,4 +1,4 @@
-package com.ssafy.swea.p1225암호생성기;
+package com.ssafy.swea.p1225_암호생성기;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

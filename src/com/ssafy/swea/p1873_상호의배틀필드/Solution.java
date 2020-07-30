@@ -1,4 +1,4 @@
-package com.ssafy.swea.p1873상호의배틀필드;
+package com.ssafy.swea.p1873_상호의배틀필드;
 
 import java.util.Scanner;
 

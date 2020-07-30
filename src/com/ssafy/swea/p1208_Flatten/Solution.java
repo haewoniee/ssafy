@@ -1,4 +1,4 @@
-package com.ssafy.swea.p1208;
+package com.ssafy.swea.p1208_Flatten;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package com.ssafy.swea.p1210Ladder1;
+package com.ssafy.swea.p1210_Ladder1;
 
 import java.util.Scanner;
 
@@ -28,14 +28,14 @@ public class Solution {
 					}
 				}
 			}
-			//ê±°ê¾¸ë¡œ íƒ€ê³  ì˜¬ë¼ê°€ê¸°
+			//ê±°ê¾¸ë¡? ??ê³? ?˜¬?¼ê°?ê¸?
 			while (destR > 0)
 			{
 				boolean flag = true;
-				//ì™¼ìª½ìœ¼ë¡œ ì´ë™
+				//?™¼ìª½ìœ¼ë¡? ?´?™
 				if (destC > 1)
 				{
-					//ì•ìœ¼ë¡œ ëª»ê°ˆë•Œê¹Œì§€ ê°€ê¸°
+					//?•?œ¼ë¡? ëª»ê°ˆ?•Œê¹Œì? ê°?ê¸?
 					while (destC > 0 && minimap[destR][destC-1] == 1)
 					{
 						destC--;
@@ -43,7 +43,7 @@ public class Solution {
 					}
 				}
 				
-				//ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì´ë™
+				//?˜¤ë¥¸ìª½?œ¼ë¡? ?´?™
 				if (flag && destC < 100)
 				{
 					while (destC < 99 && minimap[destR][destC+1] == 1)
@@ -52,7 +52,7 @@ public class Solution {
 					}
 				}
 				
-				//ì•„ë˜ë¡œ ì´ë™
+				//?•„?˜ë¡? ?´?™
 				destR--;
 			}
 			System.out.println("#" + Ti + " " + destC);

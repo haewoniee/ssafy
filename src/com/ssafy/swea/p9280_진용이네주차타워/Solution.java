@@ -1,4 +1,4 @@
-package com.ssafy.swea.p9280진용이네주차타워;
+package com.ssafy.swea.p9280_진용이네주차타워;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
