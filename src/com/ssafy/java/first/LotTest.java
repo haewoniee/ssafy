@@ -1,4 +1,4 @@
-package com.java.first;
+package com.ssafy.java.first;
 
 
 public class LotTest {
