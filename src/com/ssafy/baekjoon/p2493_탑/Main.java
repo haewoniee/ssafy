@@ -1,4 +1,4 @@
-package com.ssafy.baekjoon.p2493_ž;
+package com.ssafy.baekjoon.p2493_탑;
 
 public class Main {
 

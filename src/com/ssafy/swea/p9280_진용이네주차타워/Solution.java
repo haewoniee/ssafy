@@ -1,4 +1,4 @@
-package com.ssafy.swea.p9280_Áø¿ëÀÌ³×ÁÖÂ÷Å¸¿ö;
+package com.ssafy.swea.p9280_ì§„ìš©ì´ë„¤ì£¼ì°¨íƒ€ì›Œ;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
