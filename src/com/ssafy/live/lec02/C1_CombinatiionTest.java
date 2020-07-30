@@ -1,6 +1,6 @@
-package com.ssafy.live02;
+package com.ssafy.live.lec02;
 
-//input arrë°›ì•„ì„œ ê±°ê¸°ì„œ rê°œì˜ ì¡°í•© ë½‘ê¸°
+//input arrë°›ì•„?„œ ê±°ê¸°?„œ rê°œì˜ ì¡°í•© ë½‘ê¸°
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -29,8 +29,8 @@ public class C1_CombinatiionTest {
 		combination(0,0);
 	}
 	
-	// ì§€ì •ëœ ìë¦¬ì— ì¡°í•© ë½‘ê¸°
-	private static void combination(int cnt, int start) //cnt: í˜„ì¬ê¹Œì§€ ë½‘ì€ ì¡°í•© ìˆ˜, start: ì¡°í•©ì— ì‹œì‘ì ìœ¼ë¡œ ì‹œë„í•  index
+	// ì§?? •?œ ?ë¦¬ì— ì¡°í•© ë½‘ê¸°
+	private static void combination(int cnt, int start) //cnt: ?˜„?¬ê¹Œì? ë½‘ì? ì¡°í•© ?ˆ˜, start: ì¡°í•©?— ?‹œ?‘? ?œ¼ë¡? ?‹œ?„?•  index
 	{
 		if (cnt == R)
 		{
@@ -38,7 +38,7 @@ public class C1_CombinatiionTest {
 			return;
 		}
 		
-		//ì•ì„  ìˆ˜ì˜ ì„ íƒ ë‹¤ìŒë¶€í„° ì‹œë„
+		//?•?„  ?ˆ˜?˜ ?„ ?ƒ ?‹¤?Œë¶??„° ?‹œ?„
 		for (int i = start; i < N; i++)
 		{
 			numbers[cnt] = input[i];	

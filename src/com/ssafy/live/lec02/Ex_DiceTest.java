@@ -1,4 +1,4 @@
-package com.ssafy.live02;
+package com.ssafy.live.lec02;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -11,22 +11,22 @@ public class Ex_DiceTest {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("ì£¼ì‚¬ìœ„ë¥¼ ë˜ì§ˆ íšŸìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+		System.out.println("ì£¼ì‚¬?œ„ë¥? ?˜ì§? ?šŸ?ˆ˜ë¥? ?…? ¥?•´ì£¼ì„¸?š”.");
 		N = sc.nextInt();
 		numbers = new int[N];
 		isSelected = new boolean[7];
-		System.out.println("ìˆœì—´:1, ì¤‘ë³µìˆœì—´:2, ì¡°í•©:3, ì¤‘ë³µì¡°í•©:4");
+		System.out.println("?ˆœ?—´:1, ì¤‘ë³µ?ˆœ?—´:2, ì¡°í•©:3, ì¤‘ë³µì¡°í•©:4");
 		int swit = sc.nextInt();
 		switch(swit)
 		{
 		case 1:
-			System.out.println("-------ìˆœì—´--------");
+			System.out.println("-------?ˆœ?—´--------");
 			permutation(0);
 			System.out.println("totalCnt : " + totalCnt);
 			System.out.println();
 			break;
 		case 2:
-			System.out.println("------ì¤‘ë³µìˆœì—´------");
+			System.out.println("------ì¤‘ë³µ?ˆœ?—´------");
 			permutation_dup(0);
 			System.out.println("totalCnt : " + totalCnt);
 			break;

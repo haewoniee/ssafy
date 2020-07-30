@@ -1,8 +1,8 @@
-package com.ssafy.live02;
+package com.ssafy.live.lec02;
 
 import java.util.Arrays;
 
-//ìˆœì—´, 1~Nê¹Œì§€
+//?ˆœ?—´, 1~Nê¹Œì?
 public class P1_PermutationTest {
 
 	private static int N = 4, R = 2;
@@ -18,8 +18,8 @@ public class P1_PermutationTest {
 	}
 
 	
-	//ì§€ì •ëœ ìë¦¬ì— ìˆœì—´ ë½‘ê¸°
-	private static void permutation(int cnt) // cnt: í˜„ì¬ê¹Œì§€ ë½‘ì€ ìˆœì—´ì˜ ê°¯ìˆ˜
+	//ì§?? •?œ ?ë¦¬ì— ?ˆœ?—´ ë½‘ê¸°
+	private static void permutation(int cnt) // cnt: ?˜„?¬ê¹Œì? ë½‘ì? ?ˆœ?—´?˜ ê°??ˆ˜
 	{
 		if (cnt == R)
 		{
@@ -29,13 +29,13 @@ public class P1_PermutationTest {
 		
 		for (int i = 1; i <= N; i++)
 		{
-			//ì¤‘ë³µ í™•ì¸
+			//ì¤‘ë³µ ?™•?¸
 			if (isSelected[i]) continue;
 			
-			numbers[cnt] = i; //í•´ë‹¹ìˆ«ìë¥¼ ì‚¬ìš©
+			numbers[cnt] = i; //?•´?‹¹?ˆ«?ë¥? ?‚¬?š©
 			isSelected[i] = true;
 			
-			permutation(cnt+1); //ë‹¤ìŒ ìë¦¬ ìˆœì—´ ë½‘ê¸°
+			permutation(cnt+1); //?‹¤?Œ ?ë¦? ?ˆœ?—´ ë½‘ê¸°
 			isSelected[i] = false;
 		}
 	}

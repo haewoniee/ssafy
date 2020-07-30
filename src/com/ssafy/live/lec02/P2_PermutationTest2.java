@@ -1,9 +1,9 @@
-package com.ssafy.live02;
+package com.ssafy.live.lec02;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-//input arrë°›ì•„ì„œ ê±°ê¸°ì„œ rê°œì˜ ìˆœì—´ ë½‘ê¸°
+//input arrë°›ì•„?„œ ê±°ê¸°?„œ rê°œì˜ ?ˆœ?—´ ë½‘ê¸°
 public class P2_PermutationTest2 {
 
 	private static int N, R;
@@ -32,8 +32,8 @@ public class P2_PermutationTest2 {
 	}
 
 	
-	//ì§€ì •ëœ ìë¦¬ì— ìˆœì—´ ë½‘ê¸°
-	private static void permutation(int cnt) // cnt: í˜„ì¬ê¹Œì§€ ë½‘ì€ ìˆœì—´ì˜ ê°¯ìˆ˜
+	//ì§?? •?œ ?ë¦¬ì— ?ˆœ?—´ ë½‘ê¸°
+	private static void permutation(int cnt) // cnt: ?˜„?¬ê¹Œì? ë½‘ì? ?ˆœ?—´?˜ ê°??ˆ˜
 	{
 		if (cnt == R)
 		{
@@ -43,13 +43,13 @@ public class P2_PermutationTest2 {
 		
 		for (int i = 0; i < N; i++)
 		{
-			//ì¤‘ë³µ í™•ì¸
+			//ì¤‘ë³µ ?™•?¸
 			if (isSelected[i]) continue;
 			
-			numbers[cnt] = input[i]; //í•´ë‹¹ìˆ«ìë¥¼ ì‚¬ìš©
+			numbers[cnt] = input[i]; //?•´?‹¹?ˆ«?ë¥? ?‚¬?š©
 			isSelected[i] = true;
 			
-			permutation(cnt+1); //ë‹¤ìŒ ìë¦¬ ìˆœì—´ ë½‘ê¸°
+			permutation(cnt+1); //?‹¤?Œ ?ë¦? ?ˆœ?—´ ë½‘ê¸°
 			isSelected[i] = false;
 		}
 	}
