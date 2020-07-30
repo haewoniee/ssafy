@@ -1,4 +1,4 @@
-package com.ssafy.in_class;
+package com.ssafy.book_prob;
 
 public class NodeTest1 {
 	

@@ -1,4 +1,4 @@
-package com.baekjoon.p10974모든순열;
+package com.ssafy.baekjoon.p10974_모든순열;
 
 import java.util.Scanner;
 

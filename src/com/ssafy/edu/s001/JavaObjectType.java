@@ -1,4 +1,4 @@
-package com.sssafy.edu.s001;
+package com.ssafy.edu.s001;
 
 import java.util.Calendar;        // Calendar는 java.util에 있다.
 import java.util.Date;            // Date는 java.util에 있다.

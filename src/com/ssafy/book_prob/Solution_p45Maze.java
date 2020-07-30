@@ -1,4 +1,4 @@
-package com.ssafy.in_class;
+package com.ssafy.book_prob;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

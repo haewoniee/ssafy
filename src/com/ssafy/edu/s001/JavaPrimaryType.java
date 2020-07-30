@@ -1,4 +1,4 @@
-package com.sssafy.edu.s001;
+package com.ssafy.edu.s001;
 
 public class JavaPrimaryType {
     public static void main(String[] args) {
