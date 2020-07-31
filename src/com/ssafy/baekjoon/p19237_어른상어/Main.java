@@ -2,24 +2,23 @@ package com.ssafy.baekjoon.p19237_어른상어;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.StringTokenizer;
 
 public class Main {
-	
-	static int N, M, K, TLE = 1000, sharkCnt, tick = 0;
+
+	static int N, M, K, TLE = 1000, sharkCnt, tick;
 	static int[][][] map;
-	static int[][] dir = {{},{-1,0},{1,0},{0,-1},{0,1}};
+	static int[][] dir = { {}, { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
 	static Shark[] sharks;
-	
+	static ArrayList<int[]> smells = new ArrayList<int[]>();
+
 	public static class Shark {
 		int num, r, c, dir;
 		int[][] priorities = new int[5][4];
-		LinkedList<int[]> smells = new LinkedList<int[]>();
-		
-		public Shark(int num, int r, int c)
-		{
+
+		public Shark(int num, int r, int c) {
 			this.num = num;
 			this.r = r;
 			this.c = c;
@@ -33,7 +32,7 @@ public class Main {
 		public String toString() {
 			return "Shark [r=" + r + ", c=" + c + ", dir=" + dir + "]";
 		}
-		
+
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -45,6 +44,8 @@ public class Main {
 		sharks = new Shark[M];
 		sharkCnt = M;
 		map = new int[N][N][2];
+		tick = 0;
+		//설정
 		for (int i = 0; i < N; i++)
 		{
 			st = new StringTokenizer(br.readLine().trim());
@@ -56,17 +57,19 @@ public class Main {
 					int sharkNum = map[i][j][0];
 					sharks[sharkNum-1] = new Shark(sharkNum, i,j);
 					map[i][j] = new int[] {sharkNum, K};
-					sharks[sharkNum-1].smells.add(new int[] {i, j});
+					smells.add(new int[] {i, j});
 				}
 			}
 		}
+		
+		//상어들 방향 저장
 		st = new StringTokenizer(br.readLine().trim());
 		for (int i = 0; i < M; i++)
 		{
 			sharks[i].setDir(Integer.parseInt(st.nextToken()));
 		}
 		
-		
+		//상어들 우선순위 저장
 		for (int i = 0; i < M; i++)
 		{
 			for (int j = 1; j <= 4; j++)
@@ -80,10 +83,13 @@ public class Main {
 		}
 	
 		boolean endFlag = false;
-		printMap();
+//		printMap();
 
-		while (!endFlag && tick < TLE)
+		while (!endFlag && tick <= TLE)
 		{
+			tick++;
+			ArrayList<int[]> newPoints = new ArrayList<int[]>();;
+			
 			for (Shark s : sharks)
 			{
 				if (s.r != -1)
@@ -101,24 +107,10 @@ public class Main {
 						{
 							if (map[newR][newC][1] == 0)
 							{
-								s.r = newR;
-								s.c = newC;
+								newPoints.add(new int[] {newR, newC, s.num});
 								s.dir = pr[i];
 								movedFlag = true;
 								break;								
-							}
-							else if (map[newR][newC][1] == 4 && map[newR][newC][0] != s.num)
-							{
-								//겹쳤음. 상어제거
-								sharkCnt--;
-								s.r = -1;
-								movedFlag = true;
-								if (sharkCnt == 1)
-								{
-									endFlag = true;
-									break;
-								}
-								break;
 							}
 						}
 					}
@@ -133,8 +125,7 @@ public class Main {
 							if (newR >= 0 && newR < N && newC >= 0 && newC < N
 									&& map[newR][newC][1] > 0 && map[newR][newC][0] == s.num)
 							{
-								s.r = newR;
-								s.c = newC;
+								newPoints.add(new int[] {newR, newC, s.num});
 								s.dir = pr[i];
 								movedFlag = true;
 								break;
@@ -142,50 +133,66 @@ public class Main {
 						}
 					}
 
-					if (s.r != -1)
-					{
-						s.smells.add(new int[] {s.r, s.c});
-						map[s.r][s.c] = new int[] {s.num, K};
-					}
 
 				}
 			}
-			for (Shark s : sharks)
+			
+			// 냄새 -1
+			for (Iterator<int[]> it = smells.iterator(); it.hasNext(); )
 			{
-				for (Iterator<int[]> it = s.smells.iterator(); it.hasNext(); )
+				int[] sm = it.next();
+				if (map[sm[0]][sm[1]][1] > 0)
 				{
-					int[] sm = it.next();
-					if (!(sm[0] == s.r && sm[1] == s.c))
+					map[sm[0]][sm[1]][1]--;
+				}
+				if (map[sm[0]][sm[1]][1] == 0)
+				{
+					map[sm[0]][sm[1]][1] = 0;
+					it.remove();
+				}
+			}
+			
+			//새로운 냄새 남기기, 충돌있으면 상어 제거 (r -> -1)
+			for (int[] newPt : newPoints)
+			{
+				if (map[newPt[0]][newPt[1]][1] == 0 || map[newPt[0]][newPt[1]][0] == newPt[2])
+				{
+					sharks[newPt[2]-1].r = newPt[0];
+					sharks[newPt[2]-1].c = newPt[1];
+					if (map[newPt[0]][newPt[1]][1] == 0)
 					{
-						if (map[sm[0]][sm[1]][1] > 0)
-						{
-							map[sm[0]][sm[1]][1]--;
-						}
-						if (map[sm[0]][sm[1]][1] == 0)
-						{
-							map[sm[0]][sm[1]][0] = 0;
-							it.remove();
-						}
+						map[newPt[0]][newPt[1]][0] = newPt[2];
+						smells.add(new int[] {newPt[0], newPt[1]});
 					}
+					else
+					{
+						map[newPt[0]][newPt[1]][1] = K;
+					}
+					map[newPt[0]][newPt[1]][1] = K;
 
 				}
-
+				else
+				{
+					sharkCnt--;
+					if (sharkCnt == 1)
+					{
+						endFlag = true;
+						break;
+					}
+					sharks[newPt[2]-1].r = -1;
+				}
 			}
-			tick++;
-			printMap();
+//			printMap();
 
 		}
-		tick = tick == TLE? 0 : tick;
+		tick = tick > TLE? -1 : tick;
 		System.out.println(tick);
 		br.close();
 	}
-	
-	static void printMap()
-	{
-		for (int i = 0; i < N; i++)
-		{
-			for (int j = 0; j < N; j++)
-			{
+
+	static void printMap() {
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
 				System.out.print(map[i][j][1] + " ");
 			}
 			System.out.println();
