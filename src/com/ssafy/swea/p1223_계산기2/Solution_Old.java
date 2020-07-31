@@ -1,4 +1,4 @@
-package com.ssafy.swea.p1223_계산기;
+package com.ssafy.swea.p1223_계산기2;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Stack;
 
-public class Solution {
+public class Solution_Old {
 	
 	static Stack<String> stack;
 	static String[] post;
