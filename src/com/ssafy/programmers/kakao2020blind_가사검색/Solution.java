@@ -1,10 +1,11 @@
 package com.ssafy.programmers.kakao2020blind_가사검색;
 
-
+import java.util.HashMap;
 
 public class Solution {
 	
 	static int cnt;
+	static HashMap<String, Integer> cache;
 	
 	public static void main(String[] args) {
 		Solution s = new Solution();
@@ -15,10 +16,10 @@ public class Solution {
 	
     static class TrieNode {
         boolean isTerminal;
-        TrieNode [] children;
+        HashMap<Character, TrieNode> children;
         public TrieNode()
         {
-            children = new TrieNode[26];
+            children = new HashMap<Character, TrieNode>();
             isTerminal = false;
         }
         
@@ -30,22 +31,22 @@ public class Solution {
             	if (this.isTerminal) cnt++;
             	return cnt;
         	}
-        	for (int i = 0; i < children.length; i++)
+        	for (TrieNode node : children.values())
         	{
-        		if (children[i] != null)
-        		{
-        			cnt += children[i].cntChild(curDepth+1, depth);
-        		}
+        		cnt += node.cntChild(curDepth+1, depth);
         	}
-        	if (this.isTerminal && curDepth >= depth) cnt++;
         	return cnt;
-        }        
+        }
+        
+        
     }
     
     
     public int[] solution(String[] words, String[] queries) {
         int[] answer = new int[queries.length];
 
+        cache = new HashMap<String, Integer>();
+        
     	//알파벳으로 시작하는 정방향 트라이 입력
         TrieNode forward = new TrieNode();
         for (int i = 0; i < words.length; i++)
@@ -56,25 +57,25 @@ public class Solution {
             for (int j = 0; j < len; j++)
             {
                 char c = words[i].charAt(j);
-                if (node.children[c-'a'] == null)
+                if (!node.children.containsKey(c))
                 {
-                	node.children[c-'a'] = new TrieNode();
+                	node.children.put(c, new TrieNode());
                 }
                 
                 if (j == len - 1)
                 {
-                	if (node.children[c-'a'] == null)
+                	if (!node.children.containsKey(c))
                     {
                 		node.isTerminal = true;
                     }
                 	else
                 	{
-                		node.children[c-'a'].isTerminal = true;
+                		node.children.get(c).isTerminal = true;
                 	}
                 }
                 else
                 {
-                    node = node.children[c-'a'];
+                    node = node.children.get(c);
                 }
             }
         }
@@ -89,87 +90,71 @@ public class Solution {
             for (int j = len-1; j >= 0; j--)
             {
                 char c = words[i].charAt(j);
-                if (node.children[c-'a'] == null)
+                if (!node.children.containsKey(c))
                 {
-                	node.children[c-'a'] = new TrieNode();
+                	node.children.put(c, new TrieNode());
                 }
                 
                 if (j == 0)
                 {
-                	if (node.children[c-'a'] == null)
+                	if (!node.children.containsKey(c))
                     {
                 		node.isTerminal = true;
                     }
                 	else
                 	{
-                		node.children[c-'a'].isTerminal = true;
+                		node.children.get(c).isTerminal = true;
                 	}
                 }
                 else
                 {
-                    node = node.children[c-'a'];
+                    node = node.children.get(c);
                 }
             }
         }
+        
         for (int i = 0; i < queries.length; i++)
         {
+        	if (cache.containsKey(queries[i]))
+        	{
+        		answer[i] = cache.get(queries[i]);
+        		continue;
+        	}
         	cnt = 0;
             if (queries[i].charAt(0) == '?')
             {
             	//reverse
-            	answer[i] = findReverse(reverse, queries[i], queries[i].length(), queries[i].length()-1);
-            	
+            	cnt += find(reverse, new StringBuilder(queries[i]).reverse().toString(), 0);
             }
             else
             {
             	//forward
-            	answer[i] = find(forward, queries[i], queries[i].length(), 0);
+            	cnt += find(forward, queries[i], 0);
             }
+            
+            answer[i] = cnt;
+            cache.put(queries[i], cnt);
         }
-
-        
         return answer;
     }
     
-    static int findReverse(TrieNode node, String toFind, int len, int idx)
+    static int find(TrieNode node, String query, int idx)
     {
-    	if (node.isTerminal)
+    	int cnt = 0;
+    	if (idx == query.length() && node.isTerminal)
     	{
     		return 1;
     	}
-    	char c = toFind.charAt(idx);
-    	if (c == '?')
+    	if (node.children.containsKey(query.charAt(idx)))
     	{
-    		return node.cntChild(0, idx + 1);
+    		cnt += find(node.children.get(query.charAt(idx)), query, idx+1);
     	}
-    	else if (node.children[c - 'a'] != null)
+    	else if (query.charAt(idx) == '?')
     	{
-    		return findReverse(node.children[c-'a'], toFind, len, idx-1);
+    		cnt += node.cntChild(idx, query.length());
     	}
-    	else
-    	{
-    		return 0;
-    	}
+    	
+    	return cnt;
     }
     
-    static int find(TrieNode node, String toFind, int len, int idx)
-    {
-    	if (node.isTerminal)
-    	{
-    		return 1;
-    	}
-    	char c = toFind.charAt(idx);
-    	if (c == '?')
-    	{
-    		return node.cntChild(0, len - idx);
-    	}
-    	else if (node.children[c - 'a'] != null)
-    	{
-    		return find(node.children[c-'a'], toFind, len, idx+1);
-    	}
-    	else
-    	{
-    		return 0;
-    	}
-    }
 }
