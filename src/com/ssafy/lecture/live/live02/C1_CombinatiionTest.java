@@ -1,6 +1,6 @@
 package com.ssafy.lecture.live.live02;
 
-//input arrë°›ì•„?„œ ê±°ê¸°?„œ rê°œì˜ ì¡°í•© ë½‘ê¸°
+//input arrë°›ì•„ì„œ ê±°ê¸°ì—ì„œ rê°œì˜ ì¡°í•© ë½‘ê¸°
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -24,13 +24,11 @@ public class C1_CombinatiionTest {
 		sc.close();
 
 		numbers = new int[R];
-;
 		
 		combination(0,0);
 	}
 	
-	// ì§?? •?œ ?ë¦¬ì— ì¡°í•© ë½‘ê¸°
-	private static void combination(int cnt, int start) //cnt: ?˜„?¬ê¹Œì? ë½‘ì? ì¡°í•© ?ˆ˜, start: ì¡°í•©?— ?‹œ?‘? ?œ¼ë¡? ?‹œ?„?•  index
+	private static void combination(int cnt, int start) 
 	{
 		if (cnt == R)
 		{
@@ -38,7 +36,6 @@ public class C1_CombinatiionTest {
 			return;
 		}
 		
-		//?•?„  ?ˆ˜?˜ ?„ ?ƒ ?‹¤?Œë¶??„° ?‹œ?„
 		for (int i = start; i < N; i++)
 		{
 			numbers[cnt] = input[i];	
