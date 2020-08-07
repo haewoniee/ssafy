@@ -91,12 +91,21 @@ public class Main {
 			for (int gi = 0; gi < 3; gi++)
 			{
 				boolean flag = false;
-				for (int d = 1; d <= D && !flag; d++)
+				int newR = N - 1;
+				int newC = chosen[gi];
+				if (newR >= 0 && newR < N && newC >= 0 && newC < R && map[newR][newC] == 1)
+				{
+					toRemove[gi] = new int[] {newR, newC};
+					flag = true;
+					break;
+				}
+				
+				for (int d = 2; d <= D && !flag; d++)
 				{
 					for (int i = 0; i < 5; i++)
 					{
-						int newR = N - 1 + d * dir[i][0];
-						int newC = chosen[gi] + d * dir[i][1];
+						newR = N + d * dir[i][0];
+						newC = chosen[gi] + d * dir[i][1];
 						if (newR >= 0 && newR < N && newC >= 0 && newC < R && map[newR][newC] == 1)
 						{
 							toRemove[gi] = new int[] {newR, newC};
