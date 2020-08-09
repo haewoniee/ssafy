@@ -8,9 +8,9 @@ import java.util.StringTokenizer;
 
 public class Main {
 	
-	static int N, M, D, R, mxCnt;
+	static int N, M, D, R, mxCnt, nE, rcnt, nECopy;
 	static int[] chosen;
-	static int[][] map, mapCopy, dir = {{0,-1},{-1,-1},{-1,0},{-1,1},{0,1}};
+	static int[][] map, mapCopy;
 	
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -25,15 +25,21 @@ public class Main {
 		R = 3;
 		mxCnt = 0;
 		chosen = new int[R];
+		nE = 0;
 		for (int i = 0; i < N; i++)
 		{
 			st = new StringTokenizer(br.readLine().trim());
 			for (int j = 0; j < M; j++)
 			{
 				map[i][j] = Integer.parseInt(st.nextToken());
+				if (map[i][j] == 1)
+				{
+					nE++;
+				}
 				mapCopy[i][j] = map[i][j];
 			}
 		}
+		nECopy = nE;
 		nCr(0,0);
 		bw.write(mxCnt+"\n");
 		bw.close();
@@ -51,14 +57,13 @@ public class Main {
 					map[i][j] = mapCopy[i][j];
 				}
 			}
-			if (chosen[0] == 0 && chosen[1] == 5 && chosen[2] == 9)
-			{
-				int a = 1;
-			}
+			nE = nECopy;
+			rcnt = 0;
 			run();
+			mxCnt = Math.max(rcnt, mxCnt);
 			return;
 		}
-		for (int i = start; i < N; i++)
+		for (int i = start; i < M; i++)
 		{
 			chosen[cnt] = i;
 			nCr(cnt+1, i+1);
@@ -67,50 +72,34 @@ public class Main {
 	
 	static void run()
 	{
-		int cnt = 0;
-		int numEnemies = 0;
-		do  {
-			numEnemies = 0;
-			for (int i = 0; i < N; i++)
-			{
-				for (int j = 0; j < M; j++)
-				{
-					if (map[i][j] == 1)
-					{
-						numEnemies++;
-					}
-				}
-			}
-			if (numEnemies == 0)
-			{
-				mxCnt = Math.max(mxCnt, cnt);
-				return;
-			}
+		while  (nE > 0)
+		{
 			int[][] toRemove = new int[][] {{-1,-1},{-1,-1},{-1,-1}};
 			
 			for (int gi = 0; gi < 3; gi++)
 			{
-				boolean flag = false;
-				int newR = N - 1;
-				int newC = chosen[gi];
-				if (newR >= 0 && newR < N && newC >= 0 && newC < R && map[newR][newC] == 1)
+				//바로 위의 블록 검사
+				boolean found = false;
+				if (map[N-1][chosen[gi]] == 1)
 				{
-					toRemove[gi] = new int[] {newR, newC};
-					flag = true;
-					break;
+					found = true;
+					toRemove[gi] = new int[] {N-1, chosen[gi]};
 				}
-				
-				for (int d = 2; d <= D && !flag; d++)
+				for (int d = 2; d <= D && !found; d++)
 				{
-					for (int i = 0; i < 5; i++)
+					for (int j = -d+1; j <= d-1; j++)
 					{
-						newR = N + d * dir[i][0];
-						newC = chosen[gi] + d * dir[i][1];
-						if (newR >= 0 && newR < N && newC >= 0 && newC < R && map[newR][newC] == 1)
+						int i = -1 * (d - Math.abs(j));
+						int newR = N + i;
+						int newC = chosen[gi] + j;
+						if (checkRange(newR, newC))
 						{
-							toRemove[gi] = new int[] {newR, newC};
-							flag = true;
-							break;
+							if (map[newR][newC] == 1)
+							{
+								toRemove[gi] = new int[] {newR, newC};
+								found = true;
+								break;
+							}
 						}
 					}
 				}
@@ -121,31 +110,42 @@ public class Main {
 				if (toRemove[i][0] > -1 && toRemove[i][1] > -1 && map[toRemove[i][0]][toRemove[i][1]] == 1)
 				{
 					map[toRemove[i][0]][toRemove[i][1]] = 0;
-					cnt++;
+					rcnt++;
+					nE--;
 				}
 			}
 			
 			//적 이동
+			for (int j = 0; j < M; j++)
+			{
+				if (map[N-1][j] == 1)
+				{
+					map[N-1][j] = 0;
+					nE--;
+				}
+			}
+
 			for (int i = N-2; i >= 0; i--)
 			{
 				for (int j = 0; j < M; j++)
 				{
-					map[i+1][j] = map[i][j];
+					if (map[i][j] == 1)
+					{
+						map[i+1][j] = 1;
+						map[i][j] = 0;
+					}
 				}
 			}
-			System.arraycopy(new int[M], 0, map[0], 0, M);
-			
-		} while (numEnemies > 0);
-			
-
-	
-		
-		
+		}
 		
 	}
 	
-	static int dist(int r1, int c1, int r2, int c2)
+	static boolean checkRange(int r, int c)
 	{
-		return Math.abs(r1-r2) + Math.abs(c1-c2);
+		if (r >= 0 && r < N && c >= 0 && c < M)
+		{
+			return true;
+		}
+		return false;
 	}
 }
