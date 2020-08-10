@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>70</y>
+      <w>580</w>
+      <h>430</h>
+    </coordinates>
+    <panel_attributes>com.ssafy.lecture.java.ws06::Book
+--
+#isbn: long
+#title: String
+#author: String
+#publisher: String
+#price: double
+#desc: String
+--
++Book(long isbn, String title, String author, String publisher, double price): ctor
++Book(long isbn, String title, String author, String publisher, double price, String desc): ctor
++toString(): String
+#clone(): Book
++getIsbn(): long
++setIsbn(long isbn): void
++getTitle(): String
++setTitle(String title): void
++getAuthor(): String
++setAuthor(String author): void
++getPublisher(): String
++setPublisher(String publisher): void
++getPrice(): double
++setPrice(double price): void
++getDesc(): String
++setDesc(String desc): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>650</x>
+      <y>110</y>
+      <w>290</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>com.ssafy.lecture.java.ws06::BookManager
+--
+-mgr = new BookManager(): BookManager
+-books: Book[]
+-MAX_BOOKS = 10000: int
+-idx: int
+--
+-BookManager(): ctor
++getInstance(): BookManager
++add(Book b): void
++searchAll(): Book[]
++searchIsbn(long isbn): Book
++searchTitle(String title): Book[]
++searchBook(): Book[]
++searchMagazine(): Magazine[]
++searchPublisher(String name): Book[]
++searchPriceLower(long price): Book[]
++totalPrice(): long
++priceAvg(): long
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>620</y>
+      <w>770</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>com.ssafy.lecture.java.ws06::Magazine
+--
+-year, month: String
+--
++Magazine(long isbn, String title, String author, String publisher, double price, String desc, String year, String month): ctor
++Magazine(long isbn, String title, String author, String publisher, double price, String year, String month): ctor
++clone(): Magazine
++getYear(): String
++setYear(String year): void
++getMonth(): String
++setMonth(String month): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>490</y>
+      <w>120</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;instanceOf&gt;&gt;</panel_attributes>
+    <additional_attributes>20.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>280</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
