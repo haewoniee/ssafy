@@ -40,8 +40,7 @@ public class NewsDAOSAXImpl implements INewsDAO {
 
 	@Override
 	public News search(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		return list.get(index);
 	}
 	
 	void connectNews(String url)
