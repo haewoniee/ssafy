@@ -8,7 +8,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.List;
 
-import javax.sound.midi.Soundbank;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
