@@ -1,4 +1,4 @@
-package com.ssafy.lecture.java.chat.client;
+package com.ssafy.HW.client;
 
 import java.awt.AWTEvent;
 import java.awt.BorderLayout;

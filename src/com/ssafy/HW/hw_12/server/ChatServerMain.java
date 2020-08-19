@@ -1,4 +1,4 @@
-package com.ssafy.lecture.java.chat.server;
+package com.ssafy.HW.hw_12.server;
 
 public class ChatServerMain {
 	public static void main(String args[]) {

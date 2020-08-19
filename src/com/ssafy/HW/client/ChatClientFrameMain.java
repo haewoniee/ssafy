@@ -1,4 +1,4 @@
-package com.ssafy.lecture.java.chat.client;
+package com.ssafy.HW.client;
 
 public class ChatClientFrameMain {
 	public static void main(String[] args) {

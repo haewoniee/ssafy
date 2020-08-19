@@ -1,26 +1,25 @@
-package com.ssafy.lecture.java.chat.server;
+package com.ssafy.HW.hw_11;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Vector;
 
-public class ChatServer {
-	int port = 5200;
+public class DataServer {
+	int port = 8080;
 
 	public void setPort(int port) {
 		this.port = port;
 	}
 
-	Vector<Message> room = new Vector<Message>(5, 3);
 	ServerSocket serverSocket;
 
 	public void service() {
 		System.out.println("start Server service...");
 		try {
 			System.out.println("접속 준비중");
-			serverSocket = new ServerSocket(5200);
-			serverSocket.setReuseAddress(true);// ServerSocket port 바로 다시사용
+			serverSocket = new ServerSocket(port);
+			// ServerSocket port 바로 다시사용
+			serverSocket.setReuseAddress(true);
 		} catch (IOException e) {
 			System.out.println("서비스 준비중에 IOException 발생.");
 		}
@@ -31,11 +30,16 @@ public class ChatServer {
 				System.out.println(socket.getInetAddress() + "가 붙었습니다.");
 				System.out.println(ip + ".");
 
-				Thread t = new Thread(new ChatServerThread(room, socket));
+				Thread t = new Thread(new DataServerThread(socket));
 				t.start();
 			} catch (IOException e) {
 				System.out.println("IOException이 발생했습니다.");
 			}
 		}
 	}
+	public static void main(String[] args) {
+		DataServer server = new DataServer();
+		server.service();
+	}
+
 }

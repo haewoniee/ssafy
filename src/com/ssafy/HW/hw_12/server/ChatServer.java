@@ -1,4 +1,4 @@
-package com.ssafy.lecture.java.chat.server;
+package com.ssafy.HW.hw_12.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;

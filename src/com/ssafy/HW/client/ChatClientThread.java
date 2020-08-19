@@ -1,4 +1,4 @@
-package com.ssafy.lecture.java.chat.client;
+package com.ssafy.HW.client;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
