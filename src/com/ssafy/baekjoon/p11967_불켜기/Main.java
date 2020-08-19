@@ -12,14 +12,13 @@ public class Main {
 	static int N, M, x, y, a, b, cnt, prevR, prevC;
 	static int[][] bright, visited, dir = {{-1,0},{1,0},{0,-1},{0,1}};
 	static HashMap<Integer, ArrayList<int[]>> sMap = new HashMap<Integer, ArrayList<int[]>>();
-	
+
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine().trim());
 		N = Integer.parseInt(st.nextToken());
 		bright = new int[N+1][N+1];
 		visited = new int[N+1][N+1];
-		
 		M = Integer.parseInt(st.nextToken());
 		for (int i = 0; i < M; i++)
 		{

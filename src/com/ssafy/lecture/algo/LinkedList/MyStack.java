@@ -1,4 +1,4 @@
-package com.ssafy.lecture.java.LinkedList;
+package com.ssafy.lecture.algo.LinkedList;
 
 import java.util.LinkedList;
 
