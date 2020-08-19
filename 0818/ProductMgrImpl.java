@@ -138,7 +138,7 @@ public class ProductMgrImpl implements IProductMgr {
 		new Thread() {
 			public void run()
 			{
-				try (PrintWriter pw = new PrintWriter(new FileWriter("product.dat",true),false))
+				try (PrintWriter pw = new PrintWriter(new FileWriter("./product.dat",true),false))
 				{
 					for (Product p : list)
 					{
@@ -160,7 +160,7 @@ public class ProductMgrImpl implements IProductMgr {
 			public void run()
 			{
 				try (Socket s = new Socket("localhost", 8080);
-						PrintWriter pw = new PrintWriter(new OutputStreamWriter(s.getOutputStream()),true);)
+						PrintWriter pw = new PrintWriter(new OutputStreamWriter(s.getOutputStream()));)
 				{
 					StringBuilder sb = new StringBuilder();
 					for (Product p : list)
@@ -175,6 +175,7 @@ public class ProductMgrImpl implements IProductMgr {
 						}
 					}
 					pw.append(sb.toString());
+					pw.close();
 				}
 				catch (IOException e)
 				{

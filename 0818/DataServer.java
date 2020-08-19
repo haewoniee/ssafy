@@ -3,16 +3,14 @@ package com.ssafy.HW.hw_11;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Vector;
 
 public class DataServer {
-	int port = 5461;
+	int port = 8080;
 
 	public void setPort(int port) {
 		this.port = port;
 	}
 
-	Vector<Message> room = new Vector<Message>(5, 3);
 	ServerSocket serverSocket;
 
 	public void service() {
@@ -32,12 +30,16 @@ public class DataServer {
 				System.out.println(socket.getInetAddress() + "가 붙었습니다.");
 				System.out.println(ip + ".");
 
-				Thread t = new Thread(new DataServerThread(room, socket));
+				Thread t = new DataServerThread(socket);
 				t.start();
 			} catch (IOException e) {
 				System.out.println("IOException이 발생했습니다.");
 			}
 		}
+	}
+	public static void main(String[] args) {
+		DataServer server = new DataServer();
+		server.service();
 	}
 
 }
