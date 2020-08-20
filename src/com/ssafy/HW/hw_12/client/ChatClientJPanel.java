@@ -23,7 +23,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 
-import com.ssafy.lecture.java.chat.server.Message;
+import com.ssafy.HW.hw_12.server.Message;
+
 
 public class ChatClientJPanel extends JPanel implements javax.swing.event.ListSelectionListener {
 	private static final long serialVersionUID = 122454214237L;// JAVA5

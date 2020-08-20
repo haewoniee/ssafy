@@ -6,7 +6,7 @@ import java.util.Vector;
 
 import javax.swing.DefaultListModel;
 
-import com.ssafy.lecture.java.chat.server.Message;
+import com.ssafy.HW.hw_12.server.Message;
 
 public class ChatClientThread implements Runnable {
 	ObjectInputStream ois;
